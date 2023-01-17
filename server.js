@@ -9,13 +9,14 @@ const Role = db.role;
 
 const jwt = require("jsonwebtoken");
 
-app.use(cors());
-
-
 
 
 // parse requests of content-type - application/json
 app.use(express.json());
+app.use(cors({
+  credentials: true,
+    origin: ['http://localhost:8080', 'http://localhost:8081', 'http://localhost:8082', 'http://localhost:8083', '*', 'http://localhost:5173']
+}));
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
